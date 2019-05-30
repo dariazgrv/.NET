@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
 
@@ -8,7 +12,12 @@ namespace WebApplication2.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+                
         }
 
         public ActionResult Login()
@@ -24,6 +33,7 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+        
 
         [HttpPost]
         public ActionResult Authorize(Models.Users user)
@@ -44,6 +54,7 @@ namespace WebApplication2.Controllers
             }
         
         }
+        [HttpGet]
         public ActionResult NewUser(int id = 0)
         {
             Users user = new Users();
@@ -53,18 +64,29 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult NewUser(Users user)
         {
-            using(GetTicketEntities db = new GetTicketEntities())
-            {
-               
-                user.Id = 1;
-                user.Wallet = 1000;
-                db.Users.Add(user);
-                db.SaveChanges();
-             
-             }
+            using (GetTicketEntities db = new GetTicketEntities())
+            { 
+                if (db.Users.Any(x => x.Username == user.Username))
+                {
+                    ViewBag.DuplicateMessage = "User Name Already Exists.";
+                    return View("Register", user);
+                }
+                else
+                {
+                    while(db.Users.Any(x=>x.Id == user.Id))
+                    {
+                        user.Id++;
+                    }
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+
+            }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Registration successful.";
             return View("Register", new Users());
         }
+
+
     }
 }
