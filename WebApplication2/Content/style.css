@@ -14,7 +14,16 @@ body {
     flex-direction: row;
 }
 }
-
+.img{
+    width:200px;
+    height:200px;
+}
+.table{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
 .logo, .account-menu {
     width: 50%;
 }

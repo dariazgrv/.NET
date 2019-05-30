@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/style.css")
 </head>
 
 <body>
@@ -13,31 +14,45 @@
     </div>
     <div class="content">
         <div class="container">
+            <table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <label>Denumire: </label>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Locatie: </label>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Pret: </label>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <image class="img" src=@Html.DisplayFor(modelItem => item.Image)></image>
+                        </td>
+                    </tr>
+                    
 
+                }
+            </table>
         </div>
     </div>
-    <table class="table">
-        @foreach (var item in Model)
-        {
-            <tr>
-               <td class="table">
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-                <td class="table">
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td class="table">
-                <td>
-                    <image src=@Html.DisplayFor(modelItem => item.Image)></image>
-                </td>
-           </tr>
-
-        }
-    </table>
-    <div class="footer">
+    
+    <!--<div class="footer">
         <div class="container">
             <span>Copyright 2019</span>
         </div>
-    </div>
+    </div-->
 
 </body>
 
