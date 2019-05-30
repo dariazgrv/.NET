@@ -10,9 +10,10 @@
 namespace WebApplication2.Models
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     
-    public partial class Concerts
+    public partial class Concerts: IEnumerable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Concerts()
@@ -30,5 +31,10 @@ namespace WebApplication2.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
