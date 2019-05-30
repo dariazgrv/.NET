@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GetTicketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Concerts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Style" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.Orders" FromRole="Concerts" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Wallet" Type="Int32" />
+    <NavigationProperty Name="Concerts" Relationship="Self.Orders" FromRole="Users" ToRole="Concerts" />
+  </EntityType>
+  <Association Name="Orders">
+    <End Role="Concerts" Type="Self.Concerts" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="GetTicketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Concerts" EntityType="Self.Concerts" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="Orders" Association="Self.Orders">
+      <End Role="Concerts" EntitySet="Concerts" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

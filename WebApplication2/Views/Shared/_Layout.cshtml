@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/style.css")
+    <!--@Scripts.Render("~/bundles/modernizr")-->
+</head>
+<body>
+        <div class="header">
+            <div class="container">
+                <div class="logo"><img src="~/Content/logogetticket.png"></div>
+                <div class="account-menu">
+                    <ul class="hr-menu account-nav">
+                        <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="container">
+                <div class="navbar">
+                    @Html.ActionLink("Home", "Index", "Home")
+                    <a href="#news">News</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Dropdown
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Dropdown
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <!--<footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>-->
+        </div>
+
+        <!--@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)-->
+    </body>
+</html>
