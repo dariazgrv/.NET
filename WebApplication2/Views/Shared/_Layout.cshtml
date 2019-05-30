@@ -24,33 +24,41 @@
             <div class="container">
                 <div class="navbar">
                     @Html.ActionLink("Home", "Index", "Home")
-                    <a href="#news">News</a>
                     <div class="dropdown">
                         <button class="dropbtn">
-                            Dropdown
+                            Stiluri
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            @Html.ActionLink("Pop", "Pop", "Home")
+                            @Html.ActionLink("Rock", "Rock", "Home")
+                            @Html.ActionLink("Metal", "Metal", "Home")
+                            @Html.ActionLink("Jazz", "Jazz", "Home")
+                            @Html.ActionLink("Folk", "Folk", "Home")
+                            @Html.ActionLink("Electronica", "Electronica", "Home")
+                            @Html.ActionLink("Hip-Hop", "HipHop", "Home")
+                            @Html.ActionLink("Clasica", "Clasica", "Home")
+                            @Html.ActionLink("Fado", "Fado", "Home")
+                            @Html.ActionLink("Reggae", "Reggae", "Home")
+                            @Html.ActionLink("Pop-Rock", "PopRock", "Home")
+
                         </div>
                     </div>
                     <div class="dropdown">
                         <button class="dropbtn">
-                            Dropdown
+                            Locatii
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="bucuresti">Bucuresti</a>
+                            <a href="cluj">Cluj</a>
+                            <a href="constanta">Constanta</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="body-content">
             @RenderBody()
             <hr />
             <!--<footer>

@@ -19,6 +19,106 @@ namespace WebApplication2.Controllers
             }
                 
         }
+        public ActionResult Clasica()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Pop()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Rock()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Metal()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Reggae()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Electronica()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Fado()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult HipHop()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Jazz()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult Folk()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        public ActionResult PopRock()
+        {
+            using (GetTicketEntities db = new GetTicketEntities())
+            {
+                var concerts = db.Concerts;
+                return View(concerts.ToList());
+            }
+
+        }
+        
 
         public ActionResult Login()
         {

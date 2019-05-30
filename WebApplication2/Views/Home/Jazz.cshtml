@@ -17,7 +17,9 @@
             <div class="prod-list">
                 @foreach (var item in Model)
                 {
-                    <div class="prod-row">
+                    if (item.Style.Equals("Jazz"))
+                    {
+                        <div class="prod-row">
                         <div class="prod-row1">
                             <div class="prod-img">
                                 <image class="img" src=@Html.DisplayFor(modelItem => item.Image)></image>
@@ -36,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-
+                    }
                 }
             </div>
         </div>
