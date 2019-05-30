@@ -31,7 +31,7 @@ namespace WebApplication2.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public Nullable<int> Wallet { get; set; }
-        public string LogInErrorMessage { get; set; }
+        
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Concerts> Concerts { get; set; }
