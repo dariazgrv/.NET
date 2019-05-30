@@ -43,7 +43,8 @@ namespace WebApplication2.Controllers
                 var userDetails = db.Users.Where(i => i.Username == user.Username && i.Password == user.Password).FirstOrDefault();
                 if (userDetails == null)
                 {
-                    user.LogInErrorMessage = "Wrong username or password";
+                    //user.LogInErrorMessage = "Wrong username or password";
+                    ViewBag.ErrorMessage = "Wrong username or password";
                     return View("Login", user);
                 }
                 else
